@@ -22,7 +22,7 @@ pipeline {
                     }
                 }
 
-                stage('UI Tests') {
+                stage('UI Tests-001') {
                     steps {
                         echo "Running UI tests..."
                         sh """
