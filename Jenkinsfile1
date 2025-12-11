@@ -1,0 +1,50 @@
+pipeline {
+    agent any
+    stages {
+
+        stage('Start the process'){
+            steps {
+                echo "Starting the first flow..."
+            }
+        }
+
+        stage('Run test in Parallel'){
+            parallel{
+
+                stage('API Test'){
+                    steps{
+                        echo "Running API test..."
+                        sh '''
+                        sleep 20
+                        echo 'API test completed
+                        '''
+                    }
+                }
+
+                stage('UI test'){
+                    steps{
+                        echo "Running UI test"
+                        sh '''
+                        sleep 20
+                        echo 'UI tests completed'
+                        '''
+                    }
+                }
+
+                stage ('Gary use testcase'){
+                    steps{
+                        echo"pipeline of gary"
+                        sh """
+                        sleep 20
+                        echo"gary pipeline test completed"
+                        """
+                    }
+                }
+            }
+        }
+        stage ('Summary'){
+        steps{
+        echo "All the test finsihed."
+        }
+    }
+}
