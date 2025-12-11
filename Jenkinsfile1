@@ -1,50 +1,53 @@
 pipeline {
     agent any
+
     stages {
 
-        stage('Start the processes'){
+        stage('Start the processes') {
             steps {
                 echo "Starting the first flow..."
             }
         }
 
-        stage('Run test in Parallel'){
-            parallel{
+        stage('Run test in Parallel') {
+            parallel {
 
-                stage('API Test'){
-                    steps{
+                stage('API Test') {
+                    steps {
                         echo "Running API test..."
                         sh '''
-                        sleep 20
-                        echo 'API test completed
+                            sleep 20
+                            echo "API test completed"
                         '''
                     }
                 }
 
-                stage('UI test'){
-                    steps{
-                        echo "Running UI test"
+                stage('UI Test') {
+                    steps {
+                        echo "Running UI test..."
                         sh '''
-                        sleep 20
-                        echo 'UI tests completed'
+                            sleep 20
+                            echo "UI tests completed"
                         '''
                     }
                 }
 
-                stage ('Gary use testcase'){
-                    steps{
-                        echo"pipeline of gary"
-                        sh """
-                        sleep 20
-                        echo"gary pipeline test completed"
-                        """
+                stage('Gary use testcase') {
+                    steps {
+                        echo "pipeline of gary"
+                        sh '''
+                            sleep 20
+                            echo "gary pipeline test completed"
+                        '''
                     }
                 }
             }
         }
-        stage ('Summary'){
-        steps{
-        echo "All the test finsihed."
+
+        stage('Summary') {
+            steps {
+                echo "All the tests finished."
+            }
         }
     }
 }
