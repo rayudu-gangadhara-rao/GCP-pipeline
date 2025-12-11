@@ -3,7 +3,7 @@ pipeline {
 
     stages {
 
-        stage('Initialize') {
+        stage('Initialize PART2') {
             steps {
                 echo "Starting CI pipeline..."
             }
