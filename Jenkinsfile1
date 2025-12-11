@@ -2,7 +2,7 @@ pipeline {
     agent any
     stages {
 
-        stage('Start the process'){
+        stage('Start the processes'){
             steps {
                 echo "Starting the first flow..."
             }
